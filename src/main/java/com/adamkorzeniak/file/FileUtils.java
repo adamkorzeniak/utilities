@@ -1,21 +1,24 @@
 package com.adamkorzeniak.file;
 
+import lombok.NonNull;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FileUtils {
 
+    private FileUtils() {}
+
     public static String readFileContent(String filePath) throws IOException {
-        StringBuilder contentBuilder = new StringBuilder();
         Stream<String> stream = openFileStream(filePath);
-        stream.forEach(s -> contentBuilder.append(s).append("\n"));
-        return contentBuilder.toString();
+        return stream.collect(Collectors.joining("\n"));
     }
 
-    public static Stream<String> openFileStream(String filePath) throws IOException {
+    public static Stream<String> openFileStream(@NonNull String filePath) throws IOException {
         return Files.lines(Paths.get(filePath), StandardCharsets.UTF_8);
     }
 }
