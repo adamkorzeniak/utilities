@@ -1,0 +1,23 @@
+{
+  "name": "Adam",
+  "lastName": "Korzeniak",
+  "age": 123,
+  "address": {
+    "street": "Aleje Jerozolimskie",
+    "flatNumber": 321
+  },
+  "emailAddresses": [
+    {
+      "type": "private",
+      "address": "adam@gmail.com"
+    },
+    {
+      "type": "work",
+      "address": "work@gmail.com"
+    },
+    {
+      "type": "spam",
+      "address": "spam@gmail.com"
+    }
+  ]
+}
